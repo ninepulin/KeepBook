@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "805335219870",
+    "project_id": "mobie-app-325df",
+    "storage_bucket": "mobie-app-325df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805335219870:android:3870ba291f5043d233058f",
+        "android_client_info": {
+          "package_name": "com.google.firebase.presence.keepbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7YvgXbWdsaihFdzyYPj5m2CLSB5xeUu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

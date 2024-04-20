@@ -1,6 +1,6 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
-import 'Seachpage.dart';  // Correcting the filename if necessary.
+import 'package:keepbook/Bookshelf.dart';
+import 'package:keepbook/SeachPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +42,7 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.search, color: Colors.white),
           onPressed: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const BookshelfPage()),
+            MaterialPageRoute(builder: (context) => SearchPage()),
           ),
         ),
       ],
@@ -52,4 +52,3 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-

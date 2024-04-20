@@ -17,7 +17,7 @@ class BookReadPage extends StatelessWidget {
             FirebaseFirestore.instance.collection('books').doc(bookId).get(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }

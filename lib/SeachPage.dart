@@ -17,7 +17,7 @@ class _SearchPageState extends State<SearchPage> {
     'Drama',
   ];
 
-  String selectedType = '';
+  List<String> selectedTypes = [];
   String searchKeyword = '';
 
   @override
@@ -46,31 +46,55 @@ class _SearchPageState extends State<SearchPage> {
             padding: const EdgeInsets.all(8.0),
             child: Wrap(
               spacing: 8.0,
+              runSpacing: 8.0,
               children: bookTypes.map((type) {
-                return FilterChip(
-                  label: Text(type),
-                  selected: selectedType == type,
-                  onSelected: (selected) {
+                return GestureDetector(
+                  onTap: () {
                     setState(() {
-                      selectedType = selected ? type : '';
+                      if (selectedTypes.contains(type)) {
+                        selectedTypes.remove(type);
+                      } else {
+                        selectedTypes.add(type);
+                      }
                     });
                   },
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 22.0,
+                      vertical: 10.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: selectedTypes.contains(type)
+                          ? const Color.fromARGB(255, 113, 150, 180)
+                              .withOpacity(0.8)
+                          : const Color.fromARGB(255, 125, 161, 197),
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    child: Text(
+                      type,
+                      style: TextStyle(
+                        color: selectedTypes.contains(type)
+                            ? Colors.black
+                            : Colors.black,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  backgroundColor: Colors.grey[300],
-                  selectedColor: Colors.blue,
-                  labelStyle: const TextStyle(color: Colors.black),
                 );
               }).toList(),
             ),
           ),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-              stream: FirebaseFirestore.instance
-                  .collection('BookType')
-                  .where('type', isEqualTo: selectedType)
-                  .snapshots(),
+              stream: selectedTypes.isEmpty
+                  ? FirebaseFirestore.instance
+                      .collection('BookType')
+                      .snapshots()
+                  : FirebaseFirestore.instance
+                      .collection('BookType')
+                      .where('type', whereIn: selectedTypes)
+                      .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -90,7 +114,7 @@ class _SearchPageState extends State<SearchPage> {
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    childAspectRatio: 1 / 4,
+                    childAspectRatio: 1 / 1.5,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 15,
                   ),

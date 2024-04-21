@@ -66,7 +66,8 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           ListTile(
             title: const Text('Log out'),
-            trailing: const Icon(Icons.arrow_forward_ios),
+            trailing: const Icon(
+              Icons.arrow_forward_ios),
             onTap: () {
               Navigator.pushReplacement(
                 context,
@@ -113,7 +114,6 @@ class _SettingsPageState extends State<SettingsPage> {
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: null,
           ),
-          
         ],
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),

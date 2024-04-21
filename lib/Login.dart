@@ -37,7 +37,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // This line removes the back button
+        automaticallyImplyLeading: false, 
         title: const Text(''),
       ),
       body: SingleChildScrollView(

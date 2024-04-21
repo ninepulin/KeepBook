@@ -37,6 +37,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // This line removes the back button
         title: const Text(''),
       ),
       body: SingleChildScrollView(
@@ -92,9 +93,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                 const Text('Remember me'),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                   child: const Text(
                     'Forgot your password?',
                     style: TextStyle(color: Colors.blue),

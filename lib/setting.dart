@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:keepbook/Bottom.dart';
 import 'package:keepbook/Bookshelf.dart';
+import 'package:keepbook/Login.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -30,10 +31,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.settings, color: Colors.white, size: 35),
-          onPressed: null,
-        ),
+        leading: const Icon(Icons.settings, color: Colors.white, size: 35),
         title: const Text('Settings', style: TextStyle(color: Colors.white)),
         backgroundColor: const Color.fromARGB(255, 125, 161, 197),
       ),
@@ -63,6 +61,16 @@ class _SettingsPageState extends State<SettingsPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const BookshelfPage()),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Log out'),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyLoginPage()),
               );
             },
           ),
@@ -105,6 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: null,
           ),
+          
         ],
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),

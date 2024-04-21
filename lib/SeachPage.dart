@@ -23,7 +23,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopAppBar(),
+      appBar: const TopAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,7 +35,7 @@ class _SearchPageState extends State<SearchPage> {
                   searchKeyword = value;
                 });
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Search book by name',
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.search),
@@ -60,7 +60,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   backgroundColor: Colors.grey[300],
                   selectedColor: Colors.blue,
-                  labelStyle: TextStyle(color: Colors.black),
+                  labelStyle: const TextStyle(color: Colors.black),
                 );
               }).toList(),
             ),
@@ -73,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }

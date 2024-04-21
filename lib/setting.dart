@@ -66,9 +66,9 @@ class _SettingsPageState extends State<SettingsPage> {
               );
             },
           ),
-          ListTile(
-            title: const Text('Add a payment method'),
-            trailing: const Icon(Icons.add),
+          const ListTile(
+            title: Text('Add a payment method'),
+            trailing: Icon(Icons.add),
             onTap: null,
           ),
           SwitchListTile(

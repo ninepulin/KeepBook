@@ -66,7 +66,6 @@ class BookDetailsPage extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () async {
-                          // Your existing code for demo button
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:

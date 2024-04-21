@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:keepbook/BookRead.dart'; // Import the BookReadPage class
+import 'package:keepbook/BookRead.dart'; 
 import 'Bottom.dart';
 
 class CheckOutPage extends StatelessWidget {
@@ -62,7 +62,7 @@ class CheckOutPage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                _addToBookshelf(context); // Pass the BuildContext to the function
+                _addToBookshelf(context);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 125, 161, 197),

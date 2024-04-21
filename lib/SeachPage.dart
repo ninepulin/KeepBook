@@ -90,9 +90,9 @@ class _SearchPageState extends State<SearchPage> {
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    childAspectRatio: 3 / 4,
+                    childAspectRatio: 1 / 4,
                     crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
+                    mainAxisSpacing: 15,
                   ),
                   itemCount: filteredDocuments.length,
                   itemBuilder: (context, index) {
@@ -114,14 +114,32 @@ class _SearchPageState extends State<SearchPage> {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            alignment: Alignment.bottomLeft,
-                            padding: const EdgeInsets.all(8),
-                            child: Text(
-                              title,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.5),
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(10),
+                                        bottomRight: Radius.circular(10),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      title,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],

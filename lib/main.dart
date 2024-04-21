@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: const Color.fromARGB(255, 243, 242, 233),
       ),
+      debugShowCheckedModeBanner: false,
       home: const LoadingScreen(), 
       
     );

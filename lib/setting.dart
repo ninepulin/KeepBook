@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:keepbook/Bottom.dart';
+import 'package:keepbook/Bookshelf.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,9 @@ class MyApp extends StatelessWidget {
 }
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _SettingsPageState createState() => _SettingsPageState();
 }
 
@@ -32,7 +32,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         leading: const IconButton(
           icon: Icon(Icons.settings, color: Colors.white, size: 35),
-          onPressed: null, 
+          onPressed: null,
         ),
         title: const Text('Settings', style: TextStyle(color: Colors.white)),
         backgroundColor: const Color.fromARGB(255, 125, 161, 197),
@@ -49,22 +49,27 @@ class _SettingsPageState extends State<SettingsPage> {
           const ListTile(
             title: Text('Edit profile'),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: null, 
+            onTap: null,
           ),
           const ListTile(
             title: Text('Change password'),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: null, 
+            onTap: null,
           ),
-          const ListTile(
-            title: Text('View Bookshelf'),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: null, 
+          ListTile(
+            title: const Text('View Bookshelf'),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const BookshelfPage()),
+              );
+            },
           ),
-          const ListTile(
-            title: Text('Add a payment method'),
-            trailing: Icon(Icons.add),
-            onTap: null, 
+          ListTile(
+            title: const Text('Add a payment method'),
+            trailing: const Icon(Icons.add),
+            onTap: null,
           ),
           SwitchListTile(
             title: const Text('Push notifications'),
@@ -77,7 +82,7 @@ class _SettingsPageState extends State<SettingsPage> {
             activeTrackColor: Colors.lightBlueAccent,
             activeColor: Colors.blue,
           ),
-          const Divider(), 
+          const Divider(),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
@@ -88,21 +93,21 @@ class _SettingsPageState extends State<SettingsPage> {
           const ListTile(
             title: Text('About us'),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: null, 
+            onTap: null,
           ),
           const ListTile(
             title: Text('Privacy policy'),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: null, 
+            onTap: null,
           ),
           const ListTile(
             title: Text('Terms and conditions'),
             trailing: Icon(Icons.arrow_forward_ios),
-            onTap: null, 
+            onTap: null,
           ),
         ],
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(), 
+      bottomNavigationBar: const MyBottomNavigationBar(),
     );
   }
 }

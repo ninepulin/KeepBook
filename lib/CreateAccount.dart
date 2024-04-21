@@ -30,7 +30,8 @@ class CreateAccountPage extends StatelessWidget {
         'mobile': _mobileController.text.trim(),
       });
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const MyLoginPage()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const MyLoginPage()));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to create account: $e')),
@@ -41,11 +42,20 @@ class CreateAccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(''),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            const SizedBox(height: 80),
+            const SizedBox(height: 30),
             Center(
               child: Container(
                 margin: const EdgeInsets.only(bottom: 40.0),

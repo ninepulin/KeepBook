@@ -123,7 +123,6 @@ class _BookshopPageState extends State<BookshopPage> {
                         builder: (context) => BookDetailsPage(
                           imageUrl: book.imageUrl,
                           bookTitle: book.title,
-                          writerName: '',
                           bookContent: '',
                         ),
                       ),

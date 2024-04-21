@@ -5,14 +5,12 @@ import 'CheckOutPage.dart';
 class BookDetailsPage extends StatelessWidget {
   final String imageUrl;
   final String bookTitle;
-  final String writerName;
   final String bookContent;
 
   const BookDetailsPage({
     Key? key,
     required this.imageUrl,
     required this.bookTitle,
-    required this.writerName,
     required this.bookContent,
   }) : super(key: key);
 
@@ -52,21 +50,21 @@ class BookDetailsPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  const SizedBox(height: 20),
+                 
+                  const SizedBox(height: 10),
                   Text(
-                    ' $writerName',
+                    bookContent,
                     style: const TextStyle(
                       fontSize: 16,
-                      fontStyle: FontStyle.italic,
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center, 
                     children: [
                       ElevatedButton(
-                        onPressed: () async {
-                        },
+                        onPressed: () async {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromARGB(255, 225, 226, 228),
@@ -77,14 +75,15 @@ class BookDetailsPage extends StatelessWidget {
                           child: Text('Demo'),
                         ),
                       ),
+                      const SizedBox(width: 20), 
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => CheckOutPage(
-                                  imageUrl:
-                                      imageUrl), 
+                                imageUrl: imageUrl,
+                              ),
                             ),
                           );
                         },

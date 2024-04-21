@@ -12,7 +12,7 @@ class CheckOutPage extends StatelessWidget {
   Future<void> _addToBookshelf(BuildContext context) async {
     try {
       String userId = FirebaseAuth.instance.currentUser?.uid ?? '';
-      await FirebaseFirestore.instance
+      DocumentReference docRef = await FirebaseFirestore.instance
           .collection('bookshelf')
           .add({
         'imageUrl': imageUrl,
@@ -21,13 +21,11 @@ class CheckOutPage extends StatelessWidget {
 
       print('Book added to bookshelf successfully.');
 
-      List<String> bookIds = ['BOOK_ID_1', 'BOOK_ID_2', 'BOOK_ID_3']; 
-      for (String bookId in bookIds) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => BookReadPage(bookId: bookId)),
-        );
-      }
+      String bookId = docRef.id;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => BookReadPage(bookId: bookId, bookContent: null, imageUrl: null,)),
+      );
     } catch (error) {
       print('Error adding book to bookshelf: $error');
     }

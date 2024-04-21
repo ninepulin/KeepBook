@@ -65,8 +65,8 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                     decoration: BoxDecoration(
                       color: selectedTypes.contains(type)
-                          ? Color.fromARGB(255, 33, 128, 206).withOpacity(0.8)
-                          : Color.fromARGB(255, 111, 172, 226),
+                          ? const Color.fromARGB(255, 33, 128, 206).withOpacity(0.8)
+                          : const Color.fromARGB(255, 111, 172, 226),
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Text(
